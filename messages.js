@@ -14,21 +14,21 @@ const mockData3 = [{"role": "system", "content": `
 你要根据以上信息提供一份mock数据，以json格式给出结果
 `},{"role": "user","content": `
 data: {
-  id: <string>, // 题目ID，字母和数字组成的24位随机字符串，如：6357c4dc6468af0374156ecb的形式
-  ans: <Array>, // 题目中所有小题正确答案汇总。数组类型中每个元素内容为小题列表（qs）中每个小题的答案
+  ans: <Array>, // 数组类型，题目中所有小题正确答案汇总，元素与qs中每个小题的ans字段一致
   type: <int>, // 题目类型。取值范围[0,1,2,3]，如0:选择，1:填空等
   stem: <string>, // 大题题干，富文本形式，包含在<div>标签中，富文本内容同时需要包含latex数学公式
   difficulty: <int>, // 难度,取值范围[0,1,2],0:简单，1:中等，2:困难
-  qs: <Array>, //小题列表，随机展示2-4个小题
+  qs: <Array>, //小题列表
   subtype: <int>, // 副题型。取值范围[1001,1002,1003,1004],表示细致的类型，如选择题中的单选题、双选题等
-  exp: <string> // 答案解析，对整个题目的讲解
+  exp: <string> // 答案解析，随机展示2-4个小题
+  _id: <string> // 题目ID，字母和数字组成的24位随机字符串，如：6357c4dc6468af0374156ecb的形式
 }
 qs是小题列表，数组类型，每个元素是一个JSON，格式如下：
 {
   desc: <string> // 小题题干
   opts: <Array>, // 选项,如：['A. content1', 'B. content2', 'C. content3', 'D. content4']
   ans: <string>, // 正确答案, 如：'A'
-  exp: <string>, // 小题答案解析
+  exp: <string>, // 小题解析
 },
 `}]
 const systemPrompt1 = `{

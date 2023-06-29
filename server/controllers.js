@@ -20,7 +20,7 @@ const models = async (ctx, next) => {
 const chat = async (ctx, next) => {
   //const { content } = ctx.request.body
   const result = await axios.post(CHAT, {
-    messages: MESSAGES.queryParameters,
+    messages: MESSAGES.systemPrompt2,
     model: "gpt-3.5-turbo",
     // model: "gpt-4",
     temperature: 0.5,
